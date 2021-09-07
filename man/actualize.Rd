@@ -20,5 +20,5 @@ car object updated.
 Move the car
 }
 \examples{
-actualize(reset(), list(acc=2, steer=-20), 0.1, walls)
+actualize(set(reset()), list(acc=2, steer=-20), 0.1, walls5)
 }

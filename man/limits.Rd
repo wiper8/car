@@ -14,7 +14,7 @@ limits(car, actions, t)
 \item{t}{numeric time interval.}
 }
 \value{
-list of acc and steer.
+data.frame of acc and steer.
 }
 \description{
 Limit acceleration and steering according to physics

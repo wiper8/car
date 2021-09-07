@@ -4,7 +4,7 @@
 \alias{reward}
 \title{Get the observed reward accordingly to the state}
 \usage{
-reward(car, walls, finish, ...)
+reward(car, walls, finish, t, ...)
 }
 \arguments{
 \item{car}{car list.}

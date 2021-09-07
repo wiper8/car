@@ -127,7 +127,7 @@ set <- function(car) {
   car$x_front <- car$x+cosd(car$orien)*car$inner_l
   car$y_front <- car$y+sind(car$orien)*car$inner_l
   car$height <- 1.241
-  car$mass_height <- 0.558 ########approximation
+  car$mass_height <- 0.558 #approximation
   car$pSC_2 <- car$max_acc/car$max_speed^2
   car$max_steer <- atan(car$inner_l/(car$max_turning_radius_outer+car$outer_w/2))*180/pi
   car <- wheels(car)

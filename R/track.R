@@ -10,30 +10,16 @@
 #' see_track(sf::st_linestring(matrix(c(40, 70, 10, 70, -3, 63, -10, 50, -10, -1, 10, -1, 10, 50, 40, 50), ncol=2, byrow=TRUE)),
 #' finish)
 see_track <- function(walls, finish) {
-  ggplot2::ggplot()+ggplot2::geom_sf(data=walls)+
-    ggplot2::geom_sf(data=finish, col="red")
-}
 
-#' see the car on the track
-#'
-#' @param car car list.
-#' @param walls LINESTRING (can be many connected lines).
-#' @param finish LINESTRING.
-#'
-#' @return ggplot.
-#' @export
-#'
-#' @examples
-#' see_car_track(set(reset()), walls, finish)
-see_car_track <- function(car, walls, finish) {
-  ggplot2::ggplot()+
-    ggplot2::geom_sf(data=car$outer)+
-    ggplot2::geom_point(ggplot2::aes(x=car$x, y=car$y), size=0.1, col="red")+
-    ggplot2::labs(x = "x", y = "y")+
-    ggplot2::geom_sf(data=walls)+
-    ggplot2::geom_sf(data=finish, col="red")+
-    #ggplot2::geom_sf(data=car:::radar_distance(car$radar))+
-    ggplot2::coord_sf()
+    if (!missing(walls) & !missing(finish)) {
+      ggplot2::ggplot() +
+        ggplot2::geom_sf(data=walls) +
+        ggplot2::geom_sf(data=finish, col="red")
+    } else if (!missing(walls) & missing(finish)) {
+      ggplot2::ggplot() + ggplot2::geom_sf(data=walls)
+    } else if (missing(walls) & !missing(finish)) {
+      ggplot2::ggplot() + ggplot2::geom_sf(data=finish, col="red")
+    }
 }
 
 #' See the car, the track and where the car has been
